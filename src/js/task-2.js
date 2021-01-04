@@ -14,12 +14,22 @@ const users = [
 // };
 
 const toggleUserState = (allUsers, userName) => {
-     
-}
-// const logger = updatedUsers => console.table(updatedUsers);
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const updatedUsers = allUsers.map(user =>
+    user.name === userName ? { ...user, active: !user.active } : user,
+  );
+      if (updatedUsers) {
+        resolve(updatedUsers);
+      }
+    }, 1000);
+    
+})
+};
+const logger = updatedUsers => console.table(updatedUsers);
 
 // toggleUserState(users, 'Mango', logger);
 // toggleUserState(users, 'Lux', logger);
 
-// toggleUserState(users, 'Mango').then(logger);
-// toggleUserState(users, 'Lux').then(logger);
+toggleUserState(users, 'Mango').then(logger);
+toggleUserState(users, 'Lux').then(logger);
