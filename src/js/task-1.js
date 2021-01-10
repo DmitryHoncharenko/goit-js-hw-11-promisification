@@ -1,14 +1,13 @@
 const delay = ms => {
     // Твой код
     // const time = logger(time);
-    
-    setTimeout(() => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
             if (logger(ms)) {
-            // logger()
-                // return Promise.resolve();
-        }
-    }, ms);
-    return Promise.resolve();
+                resolve;
+            }
+        }, ms);
+    })
     
 };
 
